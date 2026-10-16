@@ -1,26 +1,40 @@
-import java.util.Scanner;
-public class Calculator {
-    int add (int a, int b) {
-        return a + b;
+class Calculator {
+    static int operationsCount = 0;
 
+    void add(int a, int b) {
+        int result = a + b;
+        System.out.println("Addition = " + result);
+        operationsCount++;
     }
-    int add (int x, int y, int z) {
-        return x + y + z;
+
+    void subtract(int a, int b) {
+        int result = a - b;
+        System.out.println("Subtraction = " + result);
+        operationsCount++;
     }
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Calculator c = new Calculator();
 
-            System.out.println("Enter two numbers");
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            System.out.println("Sum of two numbers is: " + c.add(a,b));
+    void multiply(int a, int b) {
+        int result = a * b;
+        System.out.println("Multiplication = " + result);
+        operationsCount++;
+    }
 
-            System.out.println("Enter three numbers:");
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-            int z= sc.nextInt();
-            System.out.println("Sum of three numbers is: " + c.add(x, y,z));
-
+    void divide(int a, int b) {
+        if (b != 0) {
+            int result = a / b;
+            System.out.println("Division = " + result);
+            operationsCount++;
         }
     }
+
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+
+        c.add(10, 5);
+        c.subtract(10, 5);
+        c.multiply(10, 5);
+        c.divide(10, 5);
+
+        System.out.println("Total Operations = " + operationsCount);
+    }
+}
